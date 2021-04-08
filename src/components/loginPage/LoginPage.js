@@ -10,7 +10,7 @@ const LoginPage = () => {
     e.preventDefault();
     if (userName !== "" && userName.length > 3) {
       localStorage.setItem("userName", userName);
-      history.push("/");
+      history.push("/home");
     }
   };
 
@@ -37,7 +37,7 @@ const LoginPage = () => {
           onChange={handleChange}
         />
         <button type="submit" onClick={handleSubmit}>
-          submit
+          Log In
         </button>
       </form>
     </section>

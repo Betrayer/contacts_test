@@ -6,18 +6,25 @@ import css from "./home.module.css";
 
 const HomePage = () => {
   const history = useHistory();
-  const [modalToggle, setModalToggle] = useState(false);
+  const [addModalToggle, setAddModalToggle] = useState(false);
+  const [editModalToggle, setEditModalToggle] = useState(false);
+
   useEffect(() => {
-    setModalToggle(false);
+    setAddModalToggle(false);
+    setEditModalToggle(false);
   }, []);
 
-  const handleModal = () => {
-    setModalToggle(!modalToggle);
+  const handleAddModal = () => {
+    setAddModalToggle(!addModalToggle);
+  };
+
+  const handleEditModal = () => {
+    setEditModalToggle(!editModalToggle);
   };
 
   const logout = () => {
-    localStorage.removeItem("name");
-    history.push("/login");
+    localStorage.removeItem("userName");
+    history.push("/");
   };
 
   const data = localStorage.getItem("contacts");
@@ -56,6 +63,7 @@ const HomePage = () => {
     link.click();
     document.body.removeChild(link);
   };
+
   return (
     <>
       <header className={css.header}>
@@ -64,13 +72,22 @@ const HomePage = () => {
       </header>
       <section className={css.homeSection}>
         <div className={css.buttonWrapper}>
-          <button onClick={handleModal}>new contact</button>
+          <button onClick={handleAddModal}>New contact</button>
           <button onClick={() => dataToCSV(data, "contacts", true)}>
             download CSV
           </button>
         </div>
         <ContactList />
-        {modalToggle ? <ContactsModal handleModal={handleModal} /> : <></>}
+        {addModalToggle ? (
+          <ContactsModal handleAddModal={handleAddModal} />
+        ) : (
+          <></>
+        )}
+        {editModalToggle ? (
+          <ContactsModal handleEditModal={handleEditModal} />
+        ) : (
+          <></>
+        )}
       </section>
     </>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import css from "./modal.module.css";
 
-const ContactsModal = ({ handleModal }) => {
+const ContactsModal = ({ handleAddModal, handleEditModal }) => {
   const [contact, setContact] = useState({
     name: "",
     tel: "",
@@ -14,14 +14,14 @@ const ContactsModal = ({ handleModal }) => {
     if (contact.name.length > 2 && contact.name.length > 0) {
       contactList.push(contact);
       localStorage.setItem("contacts", JSON.stringify(contactList));
-      handleModal();
+      handleAddModal();
     }
   };
 
   return (
     <div className={css.modalWrapper}>
-      <button onClick={handleModal} className={css.closingButton}>
-        close{" "}
+      <button onClick={handleAddModal} className={css.closingButton}>
+        close
       </button>
       <form id="cotactsForm">
         <label htmlFor="contactName">contactName</label>
