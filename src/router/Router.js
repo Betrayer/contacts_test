@@ -30,8 +30,8 @@ export const useRouter = () => {
       }
     >
       <Switch>
-        <Route path="/" component={LazyLogin} />
-        <Route path="/home" component={LazyHome} />
+        <Route exact path="/" component={LazyLogin} />
+        <Route exact path="/home" component={LazyHome} />
         {/* <Route exact path="*" component={Lazy404} /> */}
       </Switch>
     </Suspense>
