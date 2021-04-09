@@ -1,22 +1,26 @@
 .authSection {
-  display: flex;
   justify-content: center;
-  align-items: center;
   height: 100vh;
   font-size: 20px;
   background-color: #f3ad0c;
 }
 
 .authSectionForm {
-  display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-around;
   width: 300px;
   height: 200px;
 }
-.authSectionForm button {
-  background-color: #0C52F3;
+
+.authSection,
+.authSectionForm {
+  display: flex;
+  align-items: center;
+}
+
+.authSectionForm button,
+input {
+  background-color: #0c52f3;
   display: inline-block;
   padding: 0.3em 1.2em;
   margin: 0 0.1em 0.1em 0;
@@ -32,13 +36,17 @@
   transition: all 0.2s;
 }
 
-.authSectionForm button:hover{
-  border-color: rgba(255,255,255,1);
+.authSectionForm button:hover {
+  border-color: rgba(255, 255, 255, 1);
 }
 
 .authSectionForm input,
 button {
   width: 70%;
+}
+
+.authSectionForm input::placeholder {
+  color: #fff;
 }
 
 @media (min-width: 768px) {
@@ -52,6 +60,7 @@ button {
 
   .authSectionForm input,
   button {
+    height: 30px;
     width: 50%;
   }
 }

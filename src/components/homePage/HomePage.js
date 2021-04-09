@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import ContactList from "../contactsList/ContactList";
-import ContactsModal from "../contactsList/contactsModal/ContactsModal";
+import ContactsModal from "../contactsList/addContactModal/AddContactsModal";
+// import Button from "../button/Button";
 import css from "./home.module.css";
 
 const HomePage = () => {
   const history = useHistory();
   const [addModalToggle, setAddModalToggle] = useState(false);
-  const [editModalToggle, setEditModalToggle] = useState(false);
+  // const [editModalToggle, setEditModalToggle] = useState(false);
+  const [listIsUpdated, setListIsUpdated] = useState(false);
 
   useEffect(() => {
     setAddModalToggle(false);
-    setEditModalToggle(false);
+    // setEditModalToggle(false);
   }, []);
 
   const handleAddModal = () => {
     setAddModalToggle(!addModalToggle);
+    setListIsUpdated(!listIsUpdated);
   };
 
-  const handleEditModal = () => {
-    setEditModalToggle(!editModalToggle);
-  };
+  // const handleEditModal = () => {
+  //   setEditModalToggle(!editModalToggle);
+  // };
 
   const logout = () => {
     localStorage.removeItem("userName");
@@ -68,6 +71,7 @@ const HomePage = () => {
     <>
       <header className={css.header}>
         <span>Greetings, {localStorage.getItem("userName")}</span>
+        {/* <Button logout={logout} /> */}
         <button onClick={logout}>logout</button>
       </header>
       <section className={css.homeSection}>
@@ -77,14 +81,9 @@ const HomePage = () => {
             download CSV
           </button>
         </div>
-        <ContactList />
+        <ContactList listIsUpdated={listIsUpdated} />
         {addModalToggle ? (
           <ContactsModal handleAddModal={handleAddModal} />
-        ) : (
-          <></>
-        )}
-        {editModalToggle ? (
-          <ContactsModal handleEditModal={handleEditModal} />
         ) : (
           <></>
         )}

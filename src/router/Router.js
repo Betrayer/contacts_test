@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 const LazyLogin = lazy(
   () =>
@@ -32,10 +32,10 @@ export const useRouter = () => {
       <Switch>
         <Route exact path="/" component={LazyLogin} />
         <Route exact path="/home" component={LazyHome} />
-        {/* <Route exact path="*" component={Lazy404}> */}
-        <Route exact path="*">
+        <Route exact path="/*" component={Lazy404} />
+        {/* <Route exact path="*">
           <Redirect to="/"></Redirect>
-        </Route>
+        </Route> */}
       </Switch>
     </Suspense>
   );

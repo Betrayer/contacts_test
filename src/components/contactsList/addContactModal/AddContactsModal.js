@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import css from "./modal.module.css";
 
-const ContactsModal = ({ handleAddModal, handleEditModal }) => {
+const ContactsModal = ({ handleAddModal }) => {
   const [contact, setContact] = useState({
     name: "",
-    tel: "",
+    tel: Number(""),
   });
 
   const contactList = JSON.parse(localStorage.getItem("contacts") || "[]");
@@ -24,7 +24,7 @@ const ContactsModal = ({ handleAddModal, handleEditModal }) => {
         close
       </button>
       <form id="cotactsForm">
-        <label htmlFor="contactName">contactName</label>
+        <label htmlFor="contactName">Name</label>
         <input
           autoFocus={true}
           minLength={3}
@@ -39,7 +39,7 @@ const ContactsModal = ({ handleAddModal, handleEditModal }) => {
             })
           }
         />
-        <label htmlFor="contactTel">contactTel</label>
+        <label htmlFor="contactTel">Phone number</label>
         <input
           autoFocus={true}
           required={true}
@@ -54,7 +54,7 @@ const ContactsModal = ({ handleAddModal, handleEditModal }) => {
           }
         />
         <button type="submit" onClick={addContact}>
-          submit
+          Save
         </button>
       </form>
     </div>

@@ -1,35 +1,48 @@
 import React, { useEffect, useState } from "react";
 import css from "./contacts.module.css";
 
-const ContactList = () => {
-  const contactList = JSON.parse(localStorage.getItem("contacts") || "[]");
-  const [list, setList] = useState(
-    contactList.sort((a, b) => a.name.localeCompare(b.name))
-  );
+const ContactList = ({ listIsUpdated }) => {
+  const getList = () => {
+    const sortedList = JSON.parse(
+      localStorage.getItem("contacts") || "[]"
+    ).sort((a, b) => a.name.localeCompare(b.name));
+    setList(sortedList);
+  };
 
-  useEffect(() => {
-    // localStorage.setItem("contacts", JSON.stringify(list));
-  }, [list]);
+  const [list, setList] = useState([]);
+  // const [ranNum, setRanNum] = useState();
   const intViewportWidth = window.innerWidth;
 
   const removeContact = (tel) => {
     const newList = list.filter((item) => item.tel !== tel);
-    setList(newList);
+    localStorage.setItem("contacts", JSON.stringify(newList));
+    getList();
   };
+
+  // const rnd = () => {
+  //   const min = 0;
+  //   const max = 99;
+  //   const pureRnd = Math.floor(min + Math.random() * (max - min));
+  // };
+
+  useEffect(() => {
+    getList();
+    console.log(`listIsUpdated`, listIsUpdated);
+  }, [listIsUpdated]);
 
   return (
     <>
+      {console.log(`list`, list)}
       {list.length <= 0 ? (
         <span>No contacts saved yet, try to add some</span>
       ) : (
         <ul className={css.contactsList}>
           {list.map((contact) => (
-            <li
-              className={css.contactsListItem}
-              key={contact.tel}
-              onClick={() => removeContact(contact.tel)}
-            >
-              <button>Edit</button>
+            <li className={css.contactsListItem} key={contact.tel}>
+              <div
+                onClick={() => removeContact(contact.tel)}
+                className={css.deleteWrapper}
+              ></div>
               <img
                 alt="profile_pic"
                 // width={100}
@@ -45,7 +58,9 @@ const ContactList = () => {
                 }
               />
               <span>{contact.name}</span>
-              <a href={`tel:${contact.tel}`}>Call to</a>
+              <a className={css.callButton} href={`tel:${contact.tel}`}>
+                Call to
+              </a>
             </li>
           ))}
         </ul>

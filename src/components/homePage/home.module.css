@@ -3,6 +3,11 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3ad0c;
 }
 
 a:link {
@@ -12,16 +17,20 @@ a:link {
 .header {
   margin: 0 auto;
   margin-top: 10px;
-  width: 90%;
-  display: flex;
+  margin: 10px 5% 0px 5%;
+  padding-bottom: 20px;
   justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 
 .homeSection {
-  width: 100%;
   height: 100vh;
-  display: flex;
   flex-direction: column;
+}
+
+.header,
+.homeSection {
+  display: flex;
   align-items: center;
 }
 
@@ -32,14 +41,44 @@ a:link {
   justify-content: space-between;
 }
 
-.header button,
-.homeSection button {
-  width: 70px;
-  height: 40px;
+button {
+  background-color: #0c52f3;
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  transition: all 0.2s;
 }
 
 @media (min-width: 768px) {
   .buttonWrapper {
     margin-top: 50px;
+  }
+
+  .header,
+  .homeSection {
+    font-size: 24px;
+  }
+
+  button {
+    padding: 0.4em 1.3em;
+    margin: 0 0.2em 0.2em 0;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  button {
+    padding: 0.5em 1.4em;
+    margin: 0 0.3em 0.3em 0;
+    font-size: 20px;
   }
 }

@@ -8,7 +8,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (userName !== "" && userName.length > 3) {
+    if (userName !== "" && userName.length >= 3) {
       localStorage.setItem("userName", userName);
       history.push("/home");
     }
