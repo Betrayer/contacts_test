@@ -4,7 +4,7 @@ import css from "./modal.module.css";
 const ContactsModal = ({ handleAddModal }) => {
   const [contact, setContact] = useState({
     name: "",
-    tel: Number(""),
+    tel: "",
   });
 
   const contactList = JSON.parse(localStorage.getItem("contacts") || "[]");
