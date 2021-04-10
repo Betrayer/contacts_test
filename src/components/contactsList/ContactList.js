@@ -27,12 +27,10 @@ const ContactList = ({ listIsUpdated }) => {
 
   useEffect(() => {
     getList();
-    console.log(`listIsUpdated`, listIsUpdated);
   }, [listIsUpdated]);
 
   return (
     <>
-      {console.log(`list`, list)}
       {list.length <= 0 ? (
         <span>No contacts saved yet, try to add some</span>
       ) : (
