@@ -1,2 +1,0 @@
-(this.webpackJsonplogin_test=this.webpackJsonplogin_test||[]).push([[5],{35:function(t,n,e){"use strict";e.r(n);e(0);var s=e(3);n.default=function(){return Object(s.jsx)(s.Fragment,{children:Object(s.jsx)("span",{children:"imma 404"})})}}}]);
-//# sourceMappingURL=5.778bbdb5.chunk.js.map
