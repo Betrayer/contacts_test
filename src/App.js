@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import { useRouter } from "./router/Router";
 // import "./App.css";
 
@@ -7,7 +7,7 @@ function App(props) {
 
   return (
     <>
-      <Router basename="/contacts_test">{routing}</Router>
+      <Router>{routing}</Router>
     </>
   );
 }
