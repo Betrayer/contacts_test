@@ -33,9 +33,6 @@ export const useRouter = () => {
         <Route exact path="/" component={LazyLogin} />
         <Route exact path="/home" component={LazyHome} />
         <Route exact path="/*" component={Lazy404} />
-        {/* <Route exact path="*">
-          <Redirect to="/"></Redirect>
-        </Route> */}
       </Switch>
     </Suspense>
   );
