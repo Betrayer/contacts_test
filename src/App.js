@@ -7,7 +7,7 @@ function App(props) {
 
   return (
     <>
-      <Router>{routing}</Router>
+      <Router basename="/contacts_test">{routing}</Router>
     </>
   );
 }
