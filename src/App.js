@@ -8,6 +8,7 @@ function App(props) {
   return (
     <>
       <Router basename={process.env.PUBLIC_URL + '/'}>{routing}</Router>
+      {/* <Router basename="/contacts_test">{routing}</Router> */}
     </>
   );
 }
