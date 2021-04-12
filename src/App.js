@@ -7,7 +7,7 @@ function App(props) {
 
   return (
     <>
-      <Router basename="/login_test">{routing}</Router>
+      <Router basename={process.env.PUBLIC_URL + '/'}>{routing}</Router>
     </>
   );
 }
